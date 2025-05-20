@@ -1,7 +1,7 @@
-// Bryce Lomabrdo
-// Company Consistency Lab
-// 5/20/25
-// Extra: List of items and prices for each item and random select for each one.
+//Bryce Lombardo
+//Company Consistency Lab
+//5/20/25
+//EXTRA: list of differnt items and price that correlate to them. 
 
 #include <iostream>
 #include <string>
@@ -16,45 +16,50 @@ int main() {
     string address;
     string coupon;
     int numOfProducts = 5;
+    
+//list of different products that my store sells
+    string products[] = {"cold air intake", "cat back exhaust", "turbo charger", "coil over suspension", "tinted head lights"};
+//corresponding prices for the items 
+    double prices[] = {150.00, 600.00, 1500.00, 1200.00, 250.00};
 
-    //EXTRA: Product and price list
-     string products[] = {"cold air intake", "cat back exhaust","turbo charger", "coil over suspension", "tinted head lights"};
-     double prices[] = {150.00, 600.00, 1500.00, 1200.00, 250.00};
-
-    //EXTRA:random number generator for product that will be purchased
+//getting the random number
     srand(time(NULL));
-    int index = rand() % numOfProducts;
+    int rando = rand() % numOfProducts;
 
-    string product = products[index];
-    double ogPrice = prices[index];
-
-    //asks for name
+//uses the random number to select the product and the price for it.
+    string product = products[rando];
+    double ogPrice = prices[rando];
+    
+//asks the suer to enter their name 
     cout << "Enter your name: ";
     cin >> name;
 
-    //asks for address
-    cout << "Enter your street address: ";
-    cin.ignore();
+//asks user to enter their address
+    cout << "Enter you address: ";
+//getline alows for spaces in the answer 
     getline(cin, address);
 
-    //asks for coupon code
+//asks to user to enter the coupon they will be using 
     cout << "Enter your coupon code: ";
     cin >> coupon;
 
-    //prints the greeting using the header function
-    cout << "\n" << greeting(name) << "\n";
+//prints out the greetting using the communications.cpp function
+    cout << "\n" << greeting(name);
 
-    //uses header function and prints the uppercase address
+//converts the users address to uppercase using the function in communications.cpp
     addressUpper(address);
-    cout << "Uppercase address: " << address << "\n";
+//prints out users adress in all caps
+    cout << "\nUppercase address: " << address << ;
 
-    //calculates final price after using the header function for the coupon discount
+//uses the coupon from discount.cpp
     double finalPrice = discount(coupon, ogPrice);
-    cout << "Original Price: $" << ogPrice << "\n";
-    cout << "Price after discounts: $" << finalPrice << "\n";
+//prints original price
+    cout << "\nOriginal Price: $" << ogPrice;
+//prints the price after the discout 
+    cout << "\nPrice after discount: $" << finalPrice;
 
-    //Uses header function and prints the good bye message 
-    cout << message(product) << "\n";
+//prints out the thank you/good bye message using the communications.cpp function
+    cout << message(product) << endl;
 
     return 0;
 }
