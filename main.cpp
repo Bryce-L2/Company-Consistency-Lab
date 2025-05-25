@@ -20,7 +20,7 @@ int main() {
 //list of different products that my store sells
     string products[] = {"cold air intake", "cat back exhaust", "turbo charger", "coil over suspension", "tinted head lights"};
 //corresponding prices for the items 
-    double prices[] = {150.00, 600.00, 1500.00, 1200.00, 250.00};
+    double prices[] = {15000.00, 60000.00, 1500000.00, 1200000.00, 25000.00};
 
 //getting the random number
     srand(time(NULL));
